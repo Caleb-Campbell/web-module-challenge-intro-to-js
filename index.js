@@ -338,7 +338,6 @@ function vowelCounter(givenString) {
   for (i=0;i<givenString.length();i++){
   
   if (givenString.includes('a','A','e','E','i','I','o','O','u','U')){vowelCount++}}
-  console.log(`stretch challenge` vowelCount)
   return vowelCount
 }
 
