@@ -20,7 +20,13 @@ Do the following:
    HINT: no function required
 */
 
-
+const votingAge = 18
+if (votingAge >= 18){
+  console.log(true)
+}
+else{
+  console.log(false)
+}
 
 /*
 Task 1b - Values (not auto tested)
@@ -33,7 +39,13 @@ Do the following:
 
    HINT: no function required
 */
+let firstThing = 12
+let secondThing = 12
 
+if (firstThing === secondThing){
+  firstThing = firstThing + 1
+  console.log(firstThing)
+}
 
 
 
@@ -49,7 +61,8 @@ Do the following:
    HINT: look up the Number method
 */
 
-
+let year = '1999'
+console.log(parseInt(year))
 
 
 /*
@@ -61,8 +74,8 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-  /*add your code here*/
+function multiply(a,b){
+  return a * b
 }
 
 
@@ -77,10 +90,9 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
+function dogYears(age){
+  return age * 7
 }
-
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -92,45 +104,69 @@ Use the hungryDog function and feeding requirements below to do the following:
 2. 🌟 NOTE: if the dog is a puppy, the age will be a decimal (rounded to two places). For example: 3 months = .25 (3 divided by 12)
 3. Do the proper calculations and return the number of pounds of raw food to feed the dog/puppy in a day
 
+///
+
+///
+
 REMEMBER: This program should handle correctly adult AND puppy ages and weights
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 
 Feeding Requirements:
 
-Adult Dogs 1 year and older 
-   up to 5 lbs - 5% of their body weight
-   6 - 10 lbs - 4% of their body weight 
-   11 - 15 lbs - 3% of their body weight 
-   > 15lbs - 2% of their body weight 
 
-Puppies less than 1 year
-   2 - 4 months 10% of their body weight
-   4 - 7 months 5% of their body weight 
-   7 - 12 months 4% of their body weight
-  
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 NOTE 2: This is a great time to check the tests to see what it expects, versus what is actually 
-        returned from your function. This is an example of the output to look for on each test point. 
-          ● hungryDogFunction › Dog is 1 year and is 5lbs or less
+returned from your function. This is an example of the output to look for on each test point. 
+● hungryDogFunction › Dog is 1 year and is 5lbs or less
 
-            expect(received).toBe(expected) // Object.is equality
+expect(received).toBe(expected) // Object.is equality
 
-            Expected: 0.2
-            Received: undefined
+Expected: 0.2
+Received: undefined
 
-              21 | describe('hungryDogFunction', ()=>{ 
-              22 |   it('Dog is 1 year and is 5lbs or less', ()=>{
-            > 23 |     expect(functions.hungryDog(4, 1)).toBe(0.2);
-                |
-          ^
-              24 |   })
-      
+21 | describe('hungryDogFunction', ()=>{ 
+  22 |   it('Dog is 1 year and is 5lbs or less', ()=>{
+    > 23 |     expect(functions.hungryDog(4, 1)).toBe(0.2);
+    |
+    ^
+    24 |   })
+    Adult Dogs 1 year and older 
+       up to 5 lbs - 5% of their body weight
+       6 - 10 lbs - 4% of their body weight 
+       11 - 15 lbs - 3% of their body weight 
+       > 15lbs - 2% of their body weight 
+    
+    Puppies less than 1 year
+       2 - 4 months 10% of their body weight
+       4 - 7 months 5% of their body weight 
+       7 - 12 months 4% of their body weight
+    
         Notice the expected and received, expected is what the test is looking for, and received is what was actually returned from this function. You can also see it's passing in two values, the number 4 and the number 1. 
         So, on this one test, the weight would be 4 pounds, and the age would be 1 years old. It's expecting your function to return a decimal number of 0.2
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+function hungryDog(weight, age){
+  if(age >= 1 && weight <= 5){
+    return weight * .05
+  }
+  else if (age >=1 && weight >=6 && weight <= 10){
+    return weight * .04
+  }
+  else if (age >=1 && weight >=11 && weight <= 15){
+    return weight * .03
+  }
+  else if (age >=1 && weight > 15){
+    return weight * .02
+  }
+  else if (age < 1 && age >= .583){
+    return weight *.04
+  }
+  else if (age < .583 && age >= .333){
+    return weight *.05
+  }
+  else if (age < .333){
+    return weight *.1
+  }
 }
 
 
@@ -156,9 +192,38 @@ Use the game function below to do the following:
 RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors | Or there's a tie
 */
 
-function game(user, computer){
-  /*add your code here*/
+let computer = Math.random();
+
+if (computer <= .34){
+  computer = 'rock'
 }
+else if (computer <= 0.67)
+{
+  computer = 'paper'
+}
+else if (computer > .67){
+  computer ='scissors'
+}
+
+
+function game(user, computer){
+  if (user === computer){
+    return `it's a tie`
+      }
+  else if (user === 'rock' && computer === 'scissors'){
+    return 'you win!'
+  }
+  else if (user === 'paper' && computer === 'rock'){
+    return 'you win!'
+  }
+  else if (user === 'scissors' && computer === 'paper'){
+    return 'you win!'
+  }
+  else {
+    return 'you lose!'
+    }
+  }
+
 
 
 
@@ -173,8 +238,8 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(kilometers){
+  return kilometers * .621371
 }
 
 
@@ -187,8 +252,8 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(centimeter){
+  return centimeter / 30.48
 }
 
 
@@ -207,9 +272,16 @@ Using the annoyingSong function below do the following:
 4. Each time the annoyingSong is run from this loop, it should console.log the string that was returned. 
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+
+
+function annoyingSong(starting){
+      for (let i = starting; i>0; i--){
+        return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i-1} bottles of soda on the wall`
+      }
 }
+
+console.log(annoyingSong(4))
+
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -227,8 +299,22 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(score){
+if (score >= 90){
+  return 'you got an A'
+}
+else if (score >=80 && score <90){
+  return 'you got a B'
+}
+else if (score >=70 && score <80){
+  return 'you got a C'
+}
+else if (score >=60 && score <70){
+  return 'you got a D'
+}
+else if (score < 60){
+  return 'you got an F'
+}
 }
 
 
@@ -246,9 +332,16 @@ HINT - try looking up the .includes() method
 */
 
 
-function vowelCounter(/*add your code here*/) {
-  /*add your code here*/
+function vowelCounter(givenString) {
+  let vowelCount = 0
+  givenString = givenString.split('""')
+  for (i=0;i<givenString.length();i++){
+  
+  if (givenString.includes('a','A','e','E','i','I','o','O','u','U')){vowelCount++}}
+  console.log(`stretch challenge` vowelCount)
+  return vowelCount
 }
+
 
 
 
